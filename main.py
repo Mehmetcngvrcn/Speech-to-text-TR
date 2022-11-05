@@ -9,7 +9,7 @@ r = sr.Recognizer()
 def callback(recognizer, audio):
     try:
         yazi = r.recognize_google(audio, language='tr-tr')
-        if (yazi.startswith('yaz') and yazi.endswith("yaz")):
+        if (yazi.startswith('yaz') or yazi.endswith("yaz")):
             yazi = yazi.replace("yaz","").strip()
             print(yazi)
             pyperclip.copy(yazi)
